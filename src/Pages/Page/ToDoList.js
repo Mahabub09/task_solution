@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import useTasks from '../Shared/useTasks';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'bootstrap';
+
 
 const ToDoList = () => {
     const [tasks] = useTasks()
@@ -16,7 +14,7 @@ const ToDoList = () => {
     }
     const onSubmit = data => {
 
-        const url = `http://localhost:5000/task`;
+        const url = `https://fathomless-ocean-28808.herokuapp.com/task`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -47,8 +45,6 @@ const ToDoList = () => {
                     <textarea className='border border-dark p-2 rounded w-7/12 mx-auto' placeholder='Details'  {...register("details", { required: true })} />
 
                     <input className=' btn btn-primary bg-blue-500 w-25 mx-auto' type="submit" value="ADD" />
-
-
                 </form>
 
 
